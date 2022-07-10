@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Вьюпорт - метатег который ставится для Responisve страницы. 
+    Этот тег запрещает браузеру маштабировать страницу и сохраняет масштаб 1 к 1-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roll The Dice Game</title>
+    <meta name="description" content="#" />
+    <meta name="keywords" content="#" />
+    <!-- Css -->
+    <link rel="stylesheet" href="styles/main.css" />
+    <!-- FontFace. Для пользования прописать дополнительный CSS-->
+    <link rel="stylesheet" href="fonts/MuseoSans/font.css" />
+    <!-- Google Fonts -->
+    <!-- FontAwesome. 
+    Шаг №1 - Подключить скрипт. 
+    Шаг№2 - просто вставлять иконки с сайта FontAwesome в HTML
+    Пример использования смотреть в Basic header #1
+  -->
+    <script
+      src="https://kit.fontawesome.com/12fc691854.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <section class="AAA">    <section class="application">
+      <section class="header">
+        <div class="container">
+            <div class="header-content d-flex">
+              <button class="header__rules-button btn">How to play</button>
+            </div>
+          
+        </div>
+      </section>
+      <div class="container">
+        <div class="game-content d-flex flex-jcsb">
+          
+          <div class="players player--0 d-flex ">
+            <h1 class="player-title" id="name--0">Player 1</h1>
+            <span class="overall-score overall-score--0" id="score--0"> 0 </span>
+            <h2 class="till-victory-title">Points till victory</h2>
+            <span class="points-till-victory" id="till-victory--0"> 0 </span>
+            <div class="current-points-content current-points-content--0">
+              <h2 class="current-points-title">Current</h2>
+              <span class="current-points" id="current--0">0</span>
+            </div>
+          </div>
+          <div class="game-control d-flex">
+            <img src="./img/dice/dice-5.png" alt="PlayingDice" class="dice-img">
+            <button class="cntr-button btn rolldice">Roll Dice</button>
+            <button class="cntr-button btn hold">Hold</button>
+            <button class="cntr-button btn new-game">New Game</button>
+          </div>  
+          <div class="players d-flex player--1 player--passive">
+            <h1 class="player-title" id="name--1">Player 2</h1>     
+            <span class="overall-score overall-score--1" id="score--1"> 0 </span>
+            <h2 class="till-victory-title">Points till victory</h2>
+            <span class="points-till-victory" id="till-victory--1"> 0 </span>
+            <div class="current-points-content current-points-content--1">
+              <h2 class="current-points-title">Current</h2>
+              <span class="current-points" id="current--1">0</span>
+            </div>
+        </div>
+      </div>
+      
+    </section>
+    
+    <section class="overlay hidden"></section>
+    <section class="modal-screen hidden-mod">
+      <div class="container">
+        <button class="modal-screen__close-button">&times;</button>
+        <div class="modal-screen__content">
+          <img src="./img/dice_welcome.png" alt="Dice welcome" class="modal-screen__dice-img">
+          <h2 class="modal-screen__title">
+            Welcome to Roll the Dice
+          </h2>
+          <p class="modal-screen__rules-title">The rules</p>
+          <p class="modal-screen__rules-text">To play this game you need two players.
+            Goal is to get 100 points. If you are lucky enough to get it first - 
+            you will be the winner. <br><br>
+            You have to roll the dice and sum the number the dice's side shows to your current score.
+            However, if after multiple series of lucky rolls you will get the dice's 
+            side that shows one point - you will lose your current score 
+            and it's your opponent who will test his/her luck.
+            
+          </p>
+        </div>     
+      </div>
+    </section></section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
