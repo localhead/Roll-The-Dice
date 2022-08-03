@@ -26,9 +26,11 @@ const btnNewGame = document.querySelector('.new-game');
 const btnHold = document.querySelector('.hold');
 
 /* КНОПКИ ДЛЯ МОДАЛЬНЫХ ОКОН */
+const modal = document.querySelector('.modal-screen');
 const btnHowTo = document.querySelector('.header__rules-button');
 const btnCloseModal = document.querySelector('.modal-screen__close-button');
 const rulesModal = document.querySelector('.modal-screen');
+const overlay = document.querySelector('.overlay');
 
 //Меняем начальные значения элементов на экране
 score0El.textContent = 0;
@@ -41,7 +43,7 @@ const pointsTillVict = [100, 100];
 let currentScore = 0;
 // Флаг для определения активного игрока
 let activePlayer = 0; // 0 - first player, 1 - second player
-
+let passivePlayer = 1;
 // Флаг активности игры
 let playing = true;
 // Прячем кубик с экрана
@@ -58,6 +60,7 @@ const switchPlayer = function () {
       переключений между игорьками в обе стороны 
   */
   activePlayer = activePlayer === 0 ? 1 : 0;
+  passivePlayer = passivePlayer === 1 ? 0 : 1;
   // Добавление класса при условии, что его нет
   player0El.classList.toggle('player--passive');
   player1El.classList.toggle('player--passive');
@@ -150,6 +153,8 @@ btnNewGame.addEventListener('click', function () {
   score1El.textContent = '0';
   document.getElementById(`current--${activePlayer}`).textContent = '0';
   document.getElementById(`till-victory--${activePlayer}`).textContent = '0';
+  document.getElementById(`current--${passivePlayer}`).textContent = '0';
+  document.getElementById(`till-victory--${passivePlayer}`).textContent = '0';
   switchPlayer();
 });
 /* 
@@ -164,16 +169,19 @@ btnHowTo.addEventListener('click', function () {
   document.querySelector('.overlay').classList.remove('hidden');
 });
 
-btnCloseModal.addEventListener('click', function () {
+const closeModal = function () {
   rulesModal.classList.add('hidden-mod');
   document.querySelector('.overlay').classList.add('hidden');
+};
+
+btnCloseModal.addEventListener('click', function () {
+  closeModal();
 });
 
-document.addEventListener('keydown', function (e) {
-  console.log(e.key);
+overlay.addEventListener('click', closeModal);
 
-  if (e.key === 'Escape' && !rulesModal.classList.contains('hidden-mod')) {
-    rulesModal.classList.add('hidden-mod');
-    document.querySelector('.overlay').classList.add('hidden');
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
   }
 });

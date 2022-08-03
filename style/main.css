@@ -312,6 +312,7 @@ h1 {
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
   z-index: 4;
+  transition: all 0.5s;
 }
 
 .modal-screen {
@@ -325,6 +326,7 @@ h1 {
   height: 63%;
   border-radius: 10px;
   display: flex;
+  transition: all 0.5s;
 }
 
 .modal-screen__content {
@@ -344,8 +346,8 @@ h1 {
 }
 
 .hidden-mod {
-  position: relative;
-  display: none;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .modal-screen__close-button:hover {
