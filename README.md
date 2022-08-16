@@ -1,4 +1,4 @@
-# Roll-The-Dice
+# Roll The Dice Game
 
 ## Stack: HTML / CSS / Javascript
 
